@@ -80,7 +80,7 @@ then
     #include <mysql.h>
     #include <mysqld_error.h>
     #include <errmsg.h>
-    #if defined(PROTOCOL_VERSION) && defined(ER_LOCK_DEADLOCK) && defined(ER_LOCK_WAIT_TIMEOUT) && defined(ER_LOCK_OR_ACTIVE_TRANSACTION) && defined(CR_ERROR_FIRST)
+    #if defined(PROTOCOL_VERSION) && defined(ER_LOCK_DEADLOCK) && defined(ER_LOCK_WAIT_TIMEOUT) && defined(ER_LOCK_OR_ACTIVE_TRANSACTION) && defined(CR_MIN_ERROR)
     /* Success */
     #else
     #error Unsupported version of MySQL 
@@ -88,7 +88,7 @@ then
             ]])],
             [],
             [
-                AC_MSG_FAILURE([Unsupported version of MySQL (no PROTOCOL_VERSION or ER_LOCK_DEADLOCK or ER_LOCK_WAIT_TIMEOUT or ER_LOCK_OR_ACTIVE_TRANSACTION or CR_ERROR_FIRST defined)])
+                AC_MSG_FAILURE([Unsupported version of MySQL (no PROTOCOL_VERSION or ER_LOCK_DEADLOCK or ER_LOCK_WAIT_TIMEOUT or ER_LOCK_OR_ACTIVE_TRANSACTION or CR_MIN_ERROR defined)])
                 mysql_headers_success=no
             ])
 fi
